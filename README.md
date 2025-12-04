@@ -20,13 +20,13 @@ Add SwiftImageAnalyzer to your project by adding it as a dependency in your `Pac
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/SwiftImageAnalyzer.git", from: "1.0.0")
+    .package(url: "https://github.com/morganID/SwiftImageAnalyzer.git", from: "1.0.0")
 ]
 ```
 
 Or add it to your Xcode project:
 1. Go to File > Add Packages...
-2. Enter `https://github.com/yourusername/SwiftImageAnalyzer.git`
+2. Enter `https://github.com/morganID/SwiftImageAnalyzer.git`
 3. Select the version you want to use
 
 ## Quick Start
