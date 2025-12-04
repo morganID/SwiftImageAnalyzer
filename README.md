@@ -96,21 +96,67 @@ let result = try await analyzer.analyze(
     configuration: config
 )
 
-// Parse the structured response
+// Parse the structured response with enhanced fields
 if let parsedData = result.parsedData {
     let style = parsedData["style"] as? String
     let colors = parsedData["colors"] as? String
     let subject = parsedData["subject"] as? String
     let lighting = parsedData["lighting"] as? String
     let layout = parsedData["layout"] as? String
+    let cameraAngle = parsedData["camera_angle"] as? String
+    let shotType = parsedData["shot_type"] as? String
+    let subjectPose = parsedData["subject_pose"] as? String
+    let expression = parsedData["expression"] as? String
+    let depthOfField = parsedData["depth_of_field"] as? String
+    let lightingDirection = parsedData["lighting_direction"] as? String
+    let colorTemperature = parsedData["color_temperature"] as? String
+    let composition = parsedData["composition"] as? String
+    let focus = parsedData["focus"] as? String
     let finalPrompt = parsedData["final_prompt"] as? String
 
     print("Style: \(style ?? "")")
-    print("Colors: \(colors ?? "")")
-    print("Subject: \(subject ?? "")")
-    print("Lighting: \(lighting ?? "")")
-    print("Layout: \(layout ?? "")")
+    print("Camera Angle: \(cameraAngle ?? "")")
+    print("Shot Type: \(shotType ?? "")")
+    print("Subject Pose: \(subjectPose ?? "")")
+    print("Expression: \(expression ?? "")")
+    print("Depth of Field: \(depthOfField ?? "")")
     print("Final Prompt: \(finalPrompt ?? "")")
+}
+```
+
+## Comprehensive Image Analysis
+
+For detailed analysis of any image with all visual aspects:
+
+```swift
+// Create comprehensive analyzer
+let analyzer = GeminiImageAnalyzer.comprehensiveImageAnalyzer(apiKey: "your-api-key")
+
+// Use comprehensive configuration
+let config = GeminiImageAnalyzer.comprehensiveImageConfiguration()
+
+// Analyze any image
+let result = try await analyzer.analyze(
+    fileURL: imageURL,
+    configuration: config
+)
+
+// Access all detailed fields
+if let parsedData = result.parsedData {
+    let mood = parsedData["mood"] as? String
+    let textureDetails = parsedData["texture_details"] as? String
+    let cameraAngle = parsedData["camera_angle"] as? String
+    let subjectPose = parsedData["subject_pose"] as? String
+    let expression = parsedData["expression"] as? String
+    let depthOfField = parsedData["depth_of_field"] as? String
+    let lightingDirection = parsedData["lighting_direction"] as? String
+    let colorTemperature = parsedData["color_temperature"] as? String
+    let composition = parsedData["composition"] as? String
+
+    print("Mood: \(mood ?? "")")
+    print("Texture Details: \(textureDetails ?? "")")
+    print("Camera Angle: \(cameraAngle ?? "")")
+    print("Subject Pose: \(subjectPose ?? "")")
 }
 ```
 
@@ -208,7 +254,9 @@ class GeminiImageAnalyzer: ImageAnalyzer {
 
     // Convenience methods
     static func youtubeThumbnailAnalyzer(apiKey: String) -> GeminiImageAnalyzer
+    static func comprehensiveImageAnalyzer(apiKey: String) -> GeminiImageAnalyzer
     static func youtubeThumbnailConfiguration() -> ImageAnalysisConfiguration
+    static func comprehensiveImageConfiguration() -> ImageAnalysisConfiguration
 }
 ```
 
