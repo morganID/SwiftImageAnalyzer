@@ -1,0 +1,36 @@
+# Xcode
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# Build artifacts
+.build/
+DerivedData/
+
+# Swift Package Manager
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# API Keys (never commit these!)
+*.key
+api_key.txt
+secrets.json
